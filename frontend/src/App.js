@@ -33,21 +33,31 @@ function App() {
   return (
     <div className="container">
       <h1>Image Stylizer</h1>
-      <input
-        type="file"
-        id="content-image"
-        onChange={(e) => handleImageChange(e, setContentImage)}
-      />
-      {contentImage && <img src={contentImage} alt="Content" className="image-preview" />}
-      <input
-        type="file"
-        id="style-image"
-        onChange={(e) => handleImageChange(e, setStyleImage)}
-      />
-      {styleImage && <img src={styleImage} alt="Style" className="image-preview" />}
-      <button onClick={handleSubmit}>Stylize Image</button>
-      <div className="stylized-box">
-        {stylizedImage && <img src={stylizedImage} alt="Stylized" />}
+      <div className="image-container">
+        <div className="preview-box">
+          {contentImage && <img src={contentImage} alt="Content" />}
+          <div className="upload-button-container">
+            <input
+              type="file"
+              id="content-image"
+              onChange={(e) => handleImageChange(e, setContentImage)}
+            />
+          </div>
+        </div>
+        <div className="preview-box">
+          {styleImage && <img src={styleImage} alt="Style" />}
+          <div className="upload-button-container">
+            <input
+              type="file"
+              id="style-image"
+              onChange={(e) => handleImageChange(e, setStyleImage)}
+            />
+          </div>
+        </div>
+        <div className="stylized-box">
+          {stylizedImage && <img src={stylizedImage} alt="Stylized" />}
+          <button onClick={handleSubmit}>Stylize Image</button>
+        </div>
       </div>
     </div>
   );
