@@ -6,7 +6,19 @@
 The aim of this project was to explore the capabilities of machine learning in generating artistic content by applying my personal artistic style to different images. The original image used for style transfer was a hand-drawn artwork created using Photoshop and a Wacom board. While the focus was on creating usable textures rather than high-resolution artwork, the primary objective was to delve into the world of machine learning, gain a deeper understanding of its concepts, and explore innovative ways to generate content.
 
 ### Technology Stack:
-To implement this project, TensorFlow was utilized. TensorFlow is an open-source platform for machine learning developed by the Google Brain team. It offers developers a comprehensive suite of tools, libraries, and a supportive community to build and deploy machine learning-powered applications.
+Machine Learning:
+TensorFlow: Utilized for implementing the 'Fast Style Transfer for Arbitrary Styles' model, enabling the transformation of content images using different style images.
+Backend:
+Flask: Served as the web framework for handling server-side logic, API endpoints, and the integration of TensorFlow for processing image transformations.
+Frontend:
+React.js: Employed for building the user interface, allowing users to upload content and style images, view previews, and initiate the style transfer process.
+Styling:
+CSS: Used for styling the web interface, ensuring a visually appealing and user-friendly experience with fixed pixel sizes for image previews and centered elements.
+Development Tools:
+Visual Studio Code (VS Code): Used for writing and testing the Python and JavaScript code, facilitating an efficient development workflow.
+Version Control:
+Git: Managed version control, enabling collaboration and tracking changes throughout the development process.
+GitHub: Hosted the project repository, providing a platform for sharing the code and collaborating with others.
 
 ### Screenshots:
 ![Screenshot 1](https://github.com/feichen0826/AI-generative-works/assets/130615316/ef2b8f5d-31bb-4db3-9927-423a9f2dfb55)
