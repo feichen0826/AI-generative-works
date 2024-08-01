@@ -1,6 +1,6 @@
 # backend/app.py
 from flask import Flask, request, jsonify
-from flask_cors import CORS  # Import CORS
+from flask_cors import CORS
 import tensorflow as tf
 import tensorflow_hub as hub
 import numpy as np
@@ -10,7 +10,7 @@ import base64
 from image_utils import load_image, show_n, crop_center
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS
+CORS(app)
 
 hub_module = hub.load('https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2')
 
@@ -22,8 +22,8 @@ def preprocess_image(image, image_size=(256, 256)):
 
 @app.route('/stylize', methods=['POST'])
 def stylize_image():
-    content_image = request.files['content']
-    style_image = request.files['style']
+    content_image = request.files['content_image']
+    style_image = request.files['style_image']
 
     content_image = preprocess_image(np.array(Image.open(content_image)))
     style_image = preprocess_image(np.array(Image.open(style_image)))
@@ -38,6 +38,7 @@ def stylize_image():
     img_str = base64.b64encode(buffered.getvalue()).decode('utf-8')
 
     return jsonify({'stylized_image': img_str})
+
 
 if __name__ == '__main__':
     app.run(debug=True)
