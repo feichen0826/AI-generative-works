@@ -7,7 +7,7 @@ import numpy as np
 from PIL import Image
 import io
 import base64
-from image_utils import load_image, show_n, crop_center
+from .image_utils import load_image, show_n, crop_center
 
 app = Flask(__name__)
 CORS(app)
@@ -19,6 +19,10 @@ def preprocess_image(image, image_size=(256, 256)):
     image = tf.image.resize(image, image_size)
     image = image[tf.newaxis, :]
     return image
+
+@app.route('/')
+def home():
+    return "Server is up and running!"
 
 @app.route('/stylize', methods=['POST'])
 def stylize_image():
