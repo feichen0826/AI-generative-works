@@ -20,7 +20,7 @@ function App() {
     formData.append('style_image', styleFile);
 
     try {
-      const response = await axios.post('http://localhost:5000/stylize', formData, {
+      const response = await axios.post('https://ai-generative-works.onrender.com/stylize', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       const result = response.data.stylized_image;
