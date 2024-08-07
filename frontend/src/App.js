@@ -29,7 +29,7 @@ function App() {
     //   console.error('Error uploading images:', error);
     // }
     try {
-      const response = await fetch('https://ai-generative-works.onrender.com/stylize', {
+      const response = await fetch('https://ai-stylization-tool.onrender.com/stylize', {
         method: 'POST',
         body: formData,
         headers: {
@@ -37,6 +37,7 @@ function App() {
         }
       });
       const result = await response.json();
+      console.log('Response from API:', result);
       setStylizedImage(`data:image/jpeg;base64,${result.stylized_image}`);
     } catch (error) {
       console.error('Error uploading images:', error);
