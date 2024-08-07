@@ -10,7 +10,7 @@ import base64
 from .image_utils import load_image, show_n, crop_center
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "https://ai-generative-works.onrender.com"}})
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 hub_module = hub.load('https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2')
 
