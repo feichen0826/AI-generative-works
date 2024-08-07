@@ -10,6 +10,7 @@ import base64
 from .image_utils import load_image, show_n, crop_center
 
 app = Flask(__name__)
+app.config.from_pyfile('config/settings.py')
 CORS(app, resources={r"/*": {"origins": "*"}})
 
 hub_module = hub.load('https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2')
@@ -22,7 +23,10 @@ def preprocess_image(image, image_size=(256, 256)):
 
 @app.route('/')
 def home():
-    return "Server is up and running!"
+    return jsonify({
+        'port': app.config.get('PORT'),
+        'debug': app.config.get('DEBUG')
+    })
 
 @app.route('/stylize', methods=['POST'])
 def stylize_image():
