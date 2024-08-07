@@ -7,7 +7,7 @@ import numpy as np
 from PIL import Image
 import io
 import base64
-from image_utils import load_image, show_n, crop_center
+from .image_utils import load_image, show_n, crop_center
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "https://ai-generative-works.onrender.com"}})
