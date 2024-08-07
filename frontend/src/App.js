@@ -19,12 +19,25 @@ function App() {
     formData.append('content_image', contentFile);
     formData.append('style_image', styleFile);
 
+    // try {
+    //   const response = await axios.post('https://ai-generative-works.onrender.com/stylize', formData, {
+    //     headers: { 'Content-Type': 'multipart/form-data' },
+    //   });
+    //   const result = response.data.stylized_image;
+    //   setStylizedImage(`data:image/jpeg;base64,${result}`);
+    // } catch (error) {
+    //   console.error('Error uploading images:', error);
+    // }
     try {
-      const response = await axios.post('https://ai-generative-works.onrender.com/stylize', formData, {
-        headers: { 'Content-Type': 'multipart/form-data' },
+      const response = await fetch('https://ai-generative-works.onrender.com/stylize', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json',
+        }
       });
-      const result = response.data.stylized_image;
-      setStylizedImage(`data:image/jpeg;base64,${result}`);
+      const result = await response.json();
+      setStylizedImage(`data:image/jpeg;base64,${result.stylized_image}`);
     } catch (error) {
       console.error('Error uploading images:', error);
     }
